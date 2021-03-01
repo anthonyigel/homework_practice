@@ -89,3 +89,43 @@ def get_list_of_numbers():
   Option B: Test and make sure it works against these value also [18, 21, 17, 11 ,21, 15, 19, 17, 21, 17]
   Option C: Test and make sure it works against these value also: [18, 21, 17, 11 ,15, 19]
 """
+option_a_numbers = [18, 21, 11, 21, 15, 19, 17, 21, 17]
+option_b_numbers = [18, 21, 17, 11 ,21, 15, 19, 17, 21, 17]
+option_c_numbers = [18, 21, 17, 11, 15, 19]
+
+def get_mode_value(ls_of_numbers):
+    
+    # Sort the original list of numbers
+    ls_of_numbers = sorted(ls_of_numbers)
+    
+    # Define variable 
+    no_dup_ls_of_numbers = []
+    
+    # Loop through original list to remove duplicates
+    for i in ls_of_numbers: 
+        if i not in no_dup_ls_of_numbers: 
+            no_dup_ls_of_numbers.append(i) 
+    
+    # Sort the non-duplicative list of numbers
+    no_dup_ls_of_numbers = sorted(no_dup_ls_of_numbers)
+    
+    
+    # Creating an empty dictionary to add frequency counts to no duplicated numbers
+    freq = {} 
+    for i in ls_of_numbers:
+        freq[i] = freq.get(i, 0) + 1
+    
+    
+    temp_mode = [k for k, v in dic.items() if v == max(list(dic.values()))] 
+        
+        
+    if len(temp_mode) == n: 
+        get_mode = "No mode found"
+    else: 
+        get_mode = "Mode is / are: " + ', '.join(map(str, temp_mode)) 
+
+    print(get_mode) 
+    return freq
+
+
+dic = get_mode_value(option_a_numbers)
