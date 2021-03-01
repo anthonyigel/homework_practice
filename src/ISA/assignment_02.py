@@ -41,11 +41,11 @@ def print_sorted(in_ls):
     sentence = ''
     
     # Determine the length of the list and define the index of the last variable
-    last_element = len(in_ls) - 1
+    last_element = len(reverse_ls) - 1
     
     # Iterate through the list and add a comma
-    for i in in_list:
-        if i == in_ls[last_element]:
+    for i in reverse_ls:
+        if i == reverse_ls[last_element]:
             i = i + '\n'
         else:
             i = i + ','
