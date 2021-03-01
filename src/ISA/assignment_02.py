@@ -158,9 +158,35 @@ def histogram(in_list, in_set):
 def get_index_of_max_freq(temp_ls):
     return temp_ls.index(max(temp_ls))
 
-in_set = setify(option_a_numbers)
-hist_ls = histogram(option_a_numbers, in_set)
-max_index = get_index_of_max_freq(temp_ls)
+
+#-------------------------------------
+def get_mode_value(ls_of_numbers):
+    
+    # Get a non-duplicated list of values
+    setify_ls = setify(ls_of_numbers)
+    
+    # Create a histogram of values with their frequency
+    hist_ls = histogram(ls_of_numbers, setify_ls)
+    
+    # Get the index of the value with the highest frequency
+    max_index = get_index_of_max_freq(hist_ls)
+    
+    # Return the value of the highest frequency index
+    mode_value = setify_ls[max_index]
+    
+    return mode_value
+
+
+setify_ls = setify(option_b_numbers)
+hist_ls = histogram(option_b_numbers, in_set)
+max_index = get_index_of_max_freq(hist_ls)
+
+print('option b numbers: ', option_b_numbers)
+print('setify list: ', setify_ls)
+print('histogram list: ',hist_ls)
+print('max index: ', max_index)
+
+print(get_mode_value(option_b_numbers))
 
 #------------------------------------------------------------------------------------------------------------------------------
 """
