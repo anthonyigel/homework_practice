@@ -72,8 +72,16 @@ def get_list_of_numbers():
             tst_num_list.append(user_input)
         else:
             return tst_num_list
-          
-          
+
+#-------------------------------------
+# Define main function to call get_list_of_words and print_sorted
+def main():
+    user_ls = get_list_of_words()
+    print_sorted(user_ls)
+    
+main()
+
+
 #------------------------------------------------------------------------------------------------------------------------------
 """
 2. Find the mode of the numbers in the list.
