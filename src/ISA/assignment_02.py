@@ -137,3 +137,40 @@ def get_mode_value(ls_of_numbers):
 
 
 dic = get_mode_value(option_a_numbers)
+
+
+#------------------------------------------------------------------------------------------------------------------------------
+"""
+3. Write a loop that will iterate over a list of items and only output items which have letters
+   inside of a string.
+   
+   Do this by first writting a function contains_onlyletters(word) that returns true if it contains
+   letters only and false otherwise
+   
+   Take the following list, for example, only "John" and "Amanda" should be output
+   >>> names = ['John, '', 'Amandas', 5]
+"""
+tst_name_ls = ['John','Amanda', '5']
+
+#-------------------------------------
+def contains_onlyletters(word):
+    if word.isalpha():
+        return True
+    else:
+        return False
+    
+    
+contains_onlyletters(tst_name_ls[0])
+
+#-------------------------------------
+temp_ls = []
+def get_all_words_with_only_letters(list_of_items):
+    
+    for i in list_of_items:
+        if contains_onlyletters(i):
+            temp_ls.append(i)
+        
+    return temp_ls
+
+
+get_all_words_with_only_letters(list_of_items=tst_name_ls)           
