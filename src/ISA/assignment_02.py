@@ -138,6 +138,29 @@ def get_mode_value(ls_of_numbers):
 
 dic = get_mode_value(option_a_numbers)
 
+#-------------------------------------
+def setify(in_list):
+    out=[]
+    for elt in in_list:
+        if elt not in out:
+            out.append(elt)
+    return out
+
+#-------------------------------------
+def histogram(in_list, in_set):
+    temp_ls = []
+    for elt in in_set:
+        temp_count = in_list.count(elt)
+        temp_ls.append(temp_count)
+    return temp_ls
+
+#-------------------------------------
+def get_index_of_max_freq(temp_ls):
+    return temp_ls.index(max(temp_ls))
+
+in_set = setify(option_a_numbers)
+hist_ls = histogram(option_a_numbers, in_set)
+max_index = get_index_of_max_freq(temp_ls)
 
 #------------------------------------------------------------------------------------------------------------------------------
 """
