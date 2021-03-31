@@ -133,4 +133,29 @@ The average grade for the women is 82.7 The average grade for the men is 82.4 Th
 
 """
 #-------------------------------------
+def read_and_average_data(filename):
 
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+        header = next(reader, None)
+        
+        gender_indx = header.index('gender')
+        grade_indx = header.index('grade')
+        
+        females = []
+        males = []
+        
+        male_scores = []
+        for row in reader:
+            if row[gender_indx] == "female":
+                females.append(float(row[grade_indx]))
+            else:
+                males.append(float(row[grade_indx]))
+    
+    females_avg = sum(females) / len(females)
+    males_avg = sum(males) / len(males)
+
+    
+    return print(f'The average grade for the women is {females_avg:.1f}. The average grade for the men is {males_avg:.1f}. There were {len(females):.0f} women and {len(males):.0f} men in the data.')
+
+read_and_average_data('gradedata.csv')
