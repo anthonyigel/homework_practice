@@ -21,20 +21,6 @@ The longest word is environment and is word 12 within the string.
 #-------------------------------------
 stmt = "In spring 2021, I took a python class in a hybrid environment"
 
-def find_all(search_str, target_str):
-    start_position = 0
-    position_ls = []
-    while start_position <= len(search_str):
-        start_position = search_str.find(target_str, start_position)
-        
-        if start_position == -1:
-            return position_ls
-        else:
-            position_ls.append(start_position)
-            start_position += 1
-    
-    return position_ls
-
 def create_dict_from_string(stmt):
     
     # Create a list of the words in the statement
@@ -55,6 +41,31 @@ def create_dict_from_string(stmt):
     return temp_dict
 
 create_dict_from_string(stmt)
+
+#-------------------------------------
+def find_longest_word(dictionary):
+    
+    max_len = -1
+    for ele in stmt_dict.keys():
+        if len(ele) > max_len:
+            max_len = len(ele)
+            res = ele
+    
+    return (res, dictionary[res])
+        
+find_longest_word(dictionary = stmt_dict)
+
+#-------------------------------------
+def main():
+    
+    stmt = "In spring 2021, I took a python class in a hybrid environment"
+    dictionary = create_dict_from_string(stmt)
+    longest_value = find_longest_word(dictionary)
+    
+    print(dictionary)
+    print(f'The longest word is {longest_value[0]} and is word {longest_value[1] + 1} within the string')
+
+main()
 
 
 #------------------------------------------------------------------------------------------------------------------------------
