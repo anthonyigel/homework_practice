@@ -46,7 +46,7 @@ create_dict_from_string(stmt)
 def find_longest_word(dictionary):
     
     max_len = -1
-    for ele in stmt_dict.keys():
+    for ele in dictionary.keys():
         if len(ele) > max_len:
             max_len = len(ele)
             res = ele
