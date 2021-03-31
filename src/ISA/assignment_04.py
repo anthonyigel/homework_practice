@@ -96,6 +96,29 @@ def get_names(filename):
 
 top_scorers = get_names('gradedata.csv')
 
+#-------------------------------------
+def write_names(lst):
+    
+    file1 = open("namelist.txt","w")
+    for row in lst:
+        city = row[7].split(', ')[1]
+        state = row[7].split(', ')[2]
+        stmt = f'{row[0]} {row[1]} of {city}, {state[0:2]} scored a {float(row[6]):.0f} \n'
+
+        file1.write(stmt)
+        
+    file1.close()
+    
+write_names(lst = top_scorers)
+
+file1 = open("namelist.txt","r")
+for row in file1:
+    print(row)
+    
+#-------------------------------------
+def main():
+    top_scorers = get_names('gradedata.csv')
+    write_names(lst = top_scorers)
 
 
 #------------------------------------------------------------------------------------------------------------------------------
