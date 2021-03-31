@@ -82,7 +82,19 @@ C) The main function should call the two functions, in turn to generate the desi
 
 """
 #-------------------------------------
-gradedata_df = pd.read_csv('gradedata.csv')
+import csv
+def get_names(filename):
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+
+        score_100_names = []
+        for row in reader:
+            if row[6] == '100.0':
+                score_100_names.append(row)
+    
+    return score_100_names
+
+top_scorers = get_names('gradedata.csv')
 
 
 
