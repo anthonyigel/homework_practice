@@ -35,6 +35,37 @@ def get_top_five(filename):
 get_top_five(filename = _filename)
 
 
+### ALTERNATE
+#-------------------------------------
+def read_data(filename):
+    
+    with open(filename, 'r', newline = '') as file:
+        statereader = csv.reader(file)
+        header = next(statereader, None)
+        
+        
+        state_list = []
+        for row in statereader:
+            state_list.append(row)
+
+    return state_list, header
+    
+state_df, state_header = read_data(filename=_filename)
+
+#-------------------------------------
+def get_top_five(df, indx):
+    st_list = []
+    count = 0
+    for row in df:
+        if int(row[indx]) < 5000000:
+            st_list.append(row)
+            count +=1
+        if count == 5: 
+            break
+    return(st_list)
+
+get_top_five(state_df, header.index('Population'))
+
 #------------------------------------------------------------------------------------------------------------------------------
 """
 Q2:
@@ -44,6 +75,29 @@ Write a function get_state_population. It should take a row, and return a tuple 
 Interim Check of Output for Q2 (Not asked for)
 ```
 ('Alaska','AK', 724357)
+```
+"""
+#-------------------------------------
+def get_state_population(st_list):
+    state = st_list[0].split(',')
+    stname = state[1].strip()
+    stcode =  state[0].strip()
+    population = st_list[4]
+    return(stname,stcode,population)
+
+top5_rows = get_top_five(filename = _filename)
+get_state_population(top5_rows[0])
+
+
+#------------------------------------------------------------------------------------------------------------------------------
+"""
+Q3:
+Using the get_state_population, and state_list, use a combination of map, filter or list comprehension to generate a list state_population of tuples with stname, population. 
+(PS: I first did a map to get all the tuples, then used a list comprehension to select the two fields needed from the tuple).
+
+================ Sample output for Problem 3 ================
+```
+[('Alaska', 724357), ('Alabama', 4934190), ('Arkansas', 3033950), ('Connecticut', 3552820), ('District of Columbia', 714153)]
 ```
 """
 #-------------------------------------
