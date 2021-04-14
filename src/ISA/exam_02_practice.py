@@ -197,3 +197,9 @@ Alabama has the largest population of 4934190
 ```
 """
 #-------------------------------------
+def largest_state_population():
+    for k, v in state_pop_dict.items():
+        state_pop_dict[k] = int(v)
+    max_key = max(state_pop_dict, key=state_pop_dict.get)
+    print(f'{max_key} has the largest population of {state_pop_dict[max_key]}')
+largest_state_population()
