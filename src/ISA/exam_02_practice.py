@@ -101,3 +101,63 @@ Using the get_state_population, and state_list, use a combination of map, filter
 ```
 """
 #-------------------------------------
+def state_pop(tup):
+    a,b,c = tup
+    stname = a
+    population = c
+    return(stname, population)
+
+state_popultation = [state_pop(n) for n in list(map(get_state_population, st_list))]
+
+
+#------------------------------------------------------------------------------------------------------------------------------
+"""
+Q4:
+Write a function generate_state_dict that takes the state_population as a parameter to generate a dictionary with state as keys and population as values. Have the function return the dictionary.
+
+================ Sample output for Problem 4 ================
+```
+{'Alaska': 724357, 'Alabama': 4934190, 'Arkansas': 3033950, 'Connecticut': 3552820, 'District of Columbia': 714153}
+```
+"""
+#-------------------------------------
+
+def generate_state_dict(state_population):
+    dictionary = {}
+    for k,v in state_population:
+        dictionary[k] = v
+    return dictionary
+
+generate_state_dict(state_population=state_popultation)
+
+#------------------------------------------------------------------------------------------------------------------------------
+"""
+Q5:
+Call the function generate_state_dict and store in a variable state_pop_dict. Write the values of the state_pop_dict to a file, with State  and population properly formatted using format strings.
+
+================ Sample output for Problem 5 ================
+```
+Alaska                        724357
+Alabama                      4934190
+Arkansas                     3033950
+Connecticut                  3552820
+District of Columbia          714153
+
+```
+"""
+#-------------------------------------
+
+
+#------------------------------------------------------------------------------------------------------------------------------
+"""
+Q5:
+Write a function get_population that will take a parameter (argument) of state and return the population using the dictionary.  Use a try ..except so that if the looked up state cannot be found, it should print a message, and return None as the result.  For example a search for California should return None, but a search for Alabama should return a value.
+
+================ Sample output for Problem 6 ================
+```
+Alabama has a population of 4934190
+Population for state California is not available
+None
+```
+"""
+#-------------------------------------
