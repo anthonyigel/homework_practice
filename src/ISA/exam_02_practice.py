@@ -146,14 +146,26 @@ District of Columbia          714153
 ```
 """
 #-------------------------------------
-def write_file(dictionary):
+def write_file1(dictionary):
     for key, value in dictionary.items():
         print(f'{key:25} {int(value):10d}')
-write_file(state_pop_dict)
+write_file1(state_pop_dict)
+
+#-------------------------------------
+def write_file(dictionary):
+    
+    file1 = open("state_population_file.txt","w")
+    for key, value in dictionary.items():
+        stmt = f'{key:25} {int(value):10d}\n'
+        file1.write(stmt)
+    file1.close()
+    
+write_names(dictionary = state_pop_dict)
+
 
 #------------------------------------------------------------------------------------------------------------------------------
 """
-Q5:
+Q6:
 Write a function get_population that will take a parameter (argument) of state and return the population using the dictionary.  Use a try ..except so that if the looked up state cannot be found, it should print a message, and return None as the result.  For example a search for California should return None, but a search for Alabama should return a value.
 
 ================ Sample output for Problem 6 ================
@@ -161,6 +173,27 @@ Write a function get_population that will take a parameter (argument) of state a
 Alabama has a population of 4934190
 Population for state California is not available
 None
+```
+"""
+#-------------------------------------
+def get_population(state):
+    try:
+        print(f'{state} has a population of {state_pop_dict[state]}')
+    except:
+        print(f'Population for state {state} is not available.')
+        print(None)
+
+get_population('Alabama')
+get_population('California')
+
+#------------------------------------------------------------------------------------------------------------------------------
+"""
+Q7:
+Using the state_dictionary (state_pop_dict), find the state with the largest population.
+
+================ Sample output for Problem 7 ================
+```
+Alabama has the largest population of 4934190
 ```
 """
 #-------------------------------------
