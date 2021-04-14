@@ -146,7 +146,10 @@ District of Columbia          714153
 ```
 """
 #-------------------------------------
-
+def write_file(dictionary):
+    for key, value in dictionary.items():
+        print(f'{key:25} {int(value):10d}')
+write_file(state_pop_dict)
 
 #------------------------------------------------------------------------------------------------------------------------------
 """
