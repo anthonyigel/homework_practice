@@ -1,11 +1,10 @@
 # Project Template
 
-This project is a boiler plate for any new Pyspark projects for epp in Agatha. It houses the basic project structure that we should generally use.
+This project is a boiler plate for any new Pyspark projects. It houses the basic project structure that we should generally use.
 
 To use:
 1. Click Use this template button in GitHub
 2. On the create new repo page
-    * Change owner to EPP within dropdown
     * Name repository
     * Provide brief project description
 3. Create dev Branch
